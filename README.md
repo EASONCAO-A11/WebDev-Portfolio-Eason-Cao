@@ -9,4 +9,3 @@ Structure
 - styles/: CSS files
 - scripts/: JavaScript files
 - images/: image assets
-the man who sold the world
