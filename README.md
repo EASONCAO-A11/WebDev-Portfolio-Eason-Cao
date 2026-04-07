@@ -9,3 +9,4 @@ Structure
 - styles/: CSS files
 - scripts/: JavaScript files
 - images/: image assets
+I am ryan Gosline
