@@ -9,4 +9,4 @@ Structure
 - styles/: CSS files
 - scripts/: JavaScript files
 - images/: image assets
-I am ryan Gosline
+the man who sold the world
