@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
+});
 // Add some interactive effects
 document.addEventListener('DOMContentLoaded', function() {
     // Add click effect to project cards
@@ -77,4 +77,4 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentYear = new Date().getFullYear();
         footerYear.innerHTML = `&copy; ${currentYear} Eason Cao. All rights reserved.`;
     }
-});
+})
