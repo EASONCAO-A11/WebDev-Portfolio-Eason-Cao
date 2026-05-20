@@ -5,39 +5,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-
-
     <header>
-        <nav>
-            <div class="nav-container">
-                <h2 class="logo">Eason Cao</h2>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-avatar">A</div>
+                <span class="logo-text">Eason Cao</span>
+            </div>
+            <nav>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="projects.html">Portfolio</a></li>
+                    <li><a href="design-thinking.html">Design Thinking</a></li>
+                    <li><a href="global-goals.html">Global Goals</a></li>
+                    <li><a href="accessibility.html">Accessibility</a></li>
+                    <li><a href="behind-curtain.html">Behind the Curtain</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
 
-    <section id="about">
-        <div class="about-content">
+    <section id="about" class="page-section">
+        <div class="page-container">
             <h1>About Me</h1>
-            <p>I am a student learning programming and web development. I enjoy creating interactive websites and solving complex problems with code.</p>
-            <h2>Skills</h2>
-            <ul class="skills-list">
-                <li>HTML & CSS</li>
-                <li>JavaScript</li>
-                <li>C++</li>
-                <li>Git & Version Control</li>
-                <li>Problem Solving</li>
+            
+            <p class="intro-text">I'm Eason Cao, a passionate student learning web development, programming, and exploring creative fields like filmmaking.</p>
+            
+            <h2>Who Am I?</h2>
+            <p>I'm a dedicated learner with a growing passion for web development and programming. I'm currently exploring how to create meaningful digital experiences while also pursuing creative interests in filmmaking. I believe technology and creativity can combine to build something truly special.</p>
+            
+            <h2>My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    <ul class="skills-list">
+                        <li>HTML5</li>
+                        <li>CSS3 & Responsive Design</li>
+                        <li>JavaScript & DOM Manipulation</li>
+                        <li>Web Accessibility (WCAG)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <ul class="skills-list">
+                        <li>C++</li>
+                        <li>Data Structures & Algorithms</li>
+                        <li>Problem Solving</li>
+                        <li>Code Organization</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Development Tools</h3>
+                    <ul class="skills-list">
+                        <li>Git & GitHub</li>
+                        <li>VS Code</li>
+                        <li>Browser DevTools</li>
+                        <li>Version Control</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Design & Creative</h3>
+                    <ul class="skills-list">
+                        <li>UI/UX Design Thinking</li>
+                        <li>Filmmaking & Video Production</li>
+                        <li>Visual Design Principles</li>
+                        <li>User Experience</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h2>My Journey</h2>
+            <p>I started my learning journey by exploring the fundamentals of web development, beginning with HTML and CSS. As I progressed, I discovered the power of JavaScript and how interactivity can enhance user experiences. Simultaneously, I've been developing skills in C++ and algorithms to deepen my understanding of computer science fundamentals.</p>
+            
+            <p>Beyond coding, I've pursued interests in filmmaking, which has taught me valuable lessons about storytelling, planning, and bringing creative visions to life—skills that directly apply to web development and user experience design.</p>
+            
+            <h2>What Interests Me</h2>
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Clean Code & Architecture</h3>
+                    <p>I'm interested in writing clean, maintainable code and understanding software architecture principles.</p>
+                </div>
+                
+                <div class="interest-card">
+                    <i class="fas fa-universal-access"></i>
+                    <h3>Web Accessibility</h3>
+                    <p>Making digital content accessible to everyone, including people with disabilities, is important to me.</p>
+                </div>
+                
+                <div class="interest-card">
+                    <i class="fas fa-film"></i>
+                    <h3>Storytelling</h3>
+                    <p>Whether through code or film, I believe in the power of storytelling to engage and inspire audiences.</p>
+                </div>
+                
+                <div class="interest-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Problem Solving</h3>
+                    <p>I enjoy tackling complex problems and finding elegant solutions, both in code and in creative projects.</p>
+                </div>
+                
+                <div class="interest-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Collaboration</h3>
+                    <p>Learning with others and building together as a team makes the development process more rewarding.</p>
+                </div>
+                
+                <div class="interest-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Global Impact</h3>
+                    <p>I'm committed to using my skills to contribute positively to global initiatives like education and sustainability.</p>
+                </div>
+            </div>
+            
+            <h2>Education & Learning</h2>
+            <p>I'm currently pursuing coursework in Web Development and Computer Science. My education has exposed me to:</p>
+            <ul class="education-list">
+                <li>Web Development Fundamentals and Best Practices</li>
+                <li>Computer Science Principles and Algorithms</li>
+                <li>UI/UX Design and User Research</li>
+                <li>Accessibility Standards (WCAG 2.1)</li>
+                <li>Version Control and Collaboration Tools</li>
+                <li>Problem-Solving and Critical Thinking</li>
             </ul>
-            <h2>Education</h2>
-            <p>Currently studying web development and programming fundamentals.</p>
+            
+            <h2>Goals & Vision</h2>
+            <p>My goal is to become a proficient web developer who creates impactful digital experiences. I'm committed to:</p>
+            <ul class="goals-list">
+                <li>Continuously learning and staying current with web development trends</li>
+                <li>Building accessible, performant, and user-friendly websites</li>
+                <li>Contributing to open-source projects and the developer community</li>
+                <li>Combining my technical and creative skills to create meaningful digital experiences</li>
+                <li>Supporting education and digital inclusion initiatives</li>
+            </ul>
+            
+            <h2>Let's Connect</h2>
+            <p>I'm always interested in collaborating on projects, discussing ideas, or just connecting with fellow developers and creators. Feel free to reach out through my <a href="contact.html" style="color: var(--accent-light); text-decoration: none; border-bottom: 2px solid var(--accent-light);">contact page</a>.</p>
         </div>
     </section>
 
