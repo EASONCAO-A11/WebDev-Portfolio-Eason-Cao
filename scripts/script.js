@@ -78,3 +78,31 @@ document.addEventListener('DOMContentLoaded', function() {
         footerYear.innerHTML = `&copy; ${currentYear} Eason Cao. All rights reserved.`;
     }
 })
+
+// Wrap standalone numeric text nodes with <span class="num"> for MGS1 Ammo font
+document.addEventListener('DOMContentLoaded', function() {
+    function wrapNumbers(root) {
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+        const nodes = [];
+        while (walker.nextNode()) {
+            nodes.push(walker.currentNode);
+        }
+
+        nodes.forEach(textNode => {
+            const text = textNode.nodeValue.trim();
+            // match integers or decimals (e.g., 42 or 3.14)
+            if (/^\d+(?:\.\d+)?$/.test(text)) {
+                const parent = textNode.parentNode;
+                // skip if already wrapped or inside tags we shouldn't touch
+                const forbidden = ['A','BUTTON','INPUT','TEXTAREA','SELECT','CODE','PRE','SCRIPT','STYLE','SVG'];
+                if (parent && forbidden.includes(parent.nodeName)) return;
+                const span = document.createElement('span');
+                span.className = 'num';
+                span.textContent = text;
+                parent.replaceChild(span, textNode);
+            }
+        });
+    }
+
+    wrapNumbers(document.body);
+});
