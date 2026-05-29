@@ -162,23 +162,114 @@
         }
 
         .work-controls {
+            margin-bottom: 22px;
+        }
+
+        .reddit-thread {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .reddit-branch {
+            position: relative;
+            padding-left: 22px;
+        }
+
+        .reddit-branch::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 6px;
+            width: 2px;
+            background: rgba(114, 255, 179, 0.2);
+        }
+
+        .reddit-card {
+            position: relative;
+            background: rgba(4, 18, 14, 0.92);
+            border: 1px solid rgba(114, 255, 179, 0.18);
+            border-radius: 4px;
+            padding: 16px 18px;
+            box-shadow: inset 0 0 0 1px rgba(114, 255, 179, 0.04);
+            transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+        }
+
+        .reddit-card[data-work-target] {
+            cursor: pointer;
+        }
+
+        .reddit-card[data-work-target]:hover,
+        .reddit-card[data-work-target]:focus,
+        .reddit-card.is-active {
+            background: rgba(114, 255, 179, 0.1);
+            border-color: rgba(114, 255, 179, 0.46);
+            outline: none;
+            transform: translateX(2px);
+        }
+
+        .reddit-meta {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 18px;
-        }
-
-        .work-tab {
-            min-width: auto;
-            padding: 12px 18px;
-            font-size: 0.78rem;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 8px;
+            color: var(--accent-light);
+            font-size: 0.74rem;
+            font-weight: 700;
             letter-spacing: 0.12em;
+            text-transform: uppercase;
         }
 
-        .work-tab.is-active {
+        .reddit-card h3,
+        .reddit-card h4 {
+            margin: 0 0 8px;
+            color: var(--text-lighter);
+        }
+
+        .reddit-card p {
+            margin-bottom: 12px;
+        }
+
+        .reddit-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            margin-top: 12px;
+        }
+
+        .reddit-toggle,
+        .reddit-collapse {
+            min-width: auto;
+            padding: 9px 13px;
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+        }
+
+        .reddit-collapse {
+            color: var(--accent-light);
+        }
+
+        .reddit-toggle.is-active {
             background-color: rgba(114, 255, 179, 0.18);
             color: #03120b;
             border-color: rgba(114, 255, 179, 0.85);
+        }
+
+        .reddit-replies {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-left: 30px;
+            padding-left: 18px;
+            padding-top: 14px;
+        }
+
+        .reddit-branch.is-collapsed > .reddit-replies {
+            display: none;
         }
 
         .work-preview {
@@ -296,11 +387,18 @@
         }
 
         @media (max-width: 768px) {
-            .work-controls {
-                flex-direction: column;
+            .reddit-branch {
+                padding-left: 16px;
             }
 
-            .work-tab {
+            .reddit-replies {
+                margin-left: 18px;
+                padding-left: 14px;
+            }
+
+            .reddit-actions .btn,
+            .reddit-toggle,
+            .reddit-collapse {
                 width: 100%;
             }
 
@@ -431,13 +529,289 @@
                             <p class="intro-text">Click a lesson node to preview the coursework and open the original file.</p>
 
                             <div class="work-lab" data-work-lab>
-                                <div class="work-controls" role="tablist" aria-label="Coursework previews">
-                                    <button type="button" class="work-tab is-active" data-work-target="client-profile">Client Profile Page</button>
-                                    <button type="button" class="work-tab" data-work-target="interactive-button">Interactive Button</button>
-                                    <button type="button" class="work-tab" data-work-target="lists">Lists Challenge</button>
-                                    <button type="button" class="work-tab" data-work-target="embedding-images">Embedding Images</button>
-                                    <button type="button" class="work-tab" data-work-target="typography">Typography / Color</button>
-                                    <button type="button" class="work-tab" data-work-target="navigation">Navigation Bar</button>
+                                <div class="work-controls reddit-thread" role="tree" aria-label="Coursework previews">
+                                    <div class="reddit-branch" data-thread-branch>
+                                        <article class="reddit-card" tabindex="0" data-work-target="client-profile">
+                                            <div class="reddit-meta">
+                                                <span>Coursework Root</span>
+                                                <span>· Portfolio archive</span>
+                                            </div>
+                                            <h3>Coursework Root</h3>
+                                            <p>Browse the coursework as a nested comment thread, then click a lesson to load it in the preview panel.</p>
+                                            <div class="reddit-actions">
+                                                <button type="button" class="btn btn-secondary reddit-collapse" data-thread-toggle>collapse</button>
+                                            </div>
+                                        </article>
+
+                                        <div class="reddit-replies">
+                                            <div class="reddit-branch" data-thread-branch>
+                                                <article class="reddit-card">
+                                                    <div class="reddit-meta">
+                                                        <span>Branch</span>
+                                                        <span>· Web Development</span>
+                                                    </div>
+                                                    <h3>Web Development</h3>
+                                                    <p>HTML, CSS, navigation, and interaction lessons that shaped this portfolio.</p>
+                                                    <div class="project-tags">
+                                                        <span class="tag">HTML</span>
+                                                        <span class="tag">CSS</span>
+                                                        <span class="tag">JavaScript</span>
+                                                    </div>
+                                                    <div class="reddit-actions">
+                                                        <button type="button" class="btn btn-secondary reddit-collapse" data-thread-toggle>collapse</button>
+                                                    </div>
+                                                </article>
+
+                                                <div class="reddit-replies">
+                                                    <div class="reddit-branch" data-thread-branch>
+                                                        <article class="reddit-card">
+                                                            <div class="reddit-meta">
+                                                                <span>Unit 10</span>
+                                                                <span>· Interactive layout</span>
+                                                            </div>
+                                                            <h4>Unit 10</h4>
+                                                            <p>More complete webpages with small interactions and connected navigation.</p>
+                                                            <div class="reddit-actions">
+                                                                <button type="button" class="btn btn-secondary reddit-collapse" data-thread-toggle>collapse</button>
+                                                            </div>
+                                                        </article>
+
+                                                        <div class="reddit-replies">
+                                                            <div class="reddit-branch" data-thread-branch>
+                                                                <article class="reddit-card is-active" tabindex="0" data-work-target="client-profile">
+                                                                    <div class="reddit-meta">
+                                                                        <span>Unit 10 · Lesson 1</span>
+                                                                        <span>· Posted as coursework</span>
+                                                                    </div>
+                                                                    <h4>Client Profile Page</h4>
+                                                                    <p>Hover effects on the image and a button alert create a basic interactive interface.</p>
+                                                                    <div class="project-tags">
+                                                                        <span class="tag">Hover</span>
+                                                                        <span class="tag">Button</span>
+                                                                        <span class="tag">JavaScript</span>
+                                                                    </div>
+                                                                    <div class="reddit-actions">
+                                                                        <button type="button" class="btn btn-primary reddit-toggle is-active" data-work-target="client-profile">Preview</button>
+                                                                        <a href="../../WebDev-Coursework-Eason-Cao/Unit-10/Lesson-1/Code Challenge/Index.html" class="btn btn-secondary" target="_blank" rel="noreferrer">Open File</a>
+                                                                    </div>
+                                                                </article>
+                                                            </div>
+
+                                                            <div class="reddit-branch" data-thread-branch>
+                                                                <article class="reddit-card" tabindex="0" data-work-target="navigation">
+                                                                    <div class="reddit-meta">
+                                                                        <span>Unit 10 · Lesson 2</span>
+                                                                        <span>· Posted as coursework</span>
+                                                                    </div>
+                                                                    <h4>Navigation Bar Challenge</h4>
+                                                                    <p>Navigation practice that connects multiple pages and supports the portfolio structure.</p>
+                                                                    <div class="project-tags">
+                                                                        <span class="tag">Navigation</span>
+                                                                        <span class="tag">Links</span>
+                                                                        <span class="tag">CSS</span>
+                                                                    </div>
+                                                                    <div class="reddit-actions">
+                                                                        <button type="button" class="btn btn-primary reddit-toggle" data-work-target="navigation">Preview</button>
+                                                                        <a href="../../WebDev-Coursework-Eason-Cao/Unit-10/Lesson-2/Code Challenge/index.html" class="btn btn-secondary" target="_blank" rel="noreferrer">Open File</a>
+                                                                    </div>
+                                                                </article>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="reddit-branch" data-thread-branch>
+                                                        <article class="reddit-card">
+                                                            <div class="reddit-meta">
+                                                                <span>Unit 9</span>
+                                                                <span>· DOM events</span>
+                                                            </div>
+                                                            <h4>Unit 9</h4>
+                                                            <p>JavaScript practice focused on changing page content through user input.</p>
+                                                            <div class="reddit-actions">
+                                                                <button type="button" class="btn btn-secondary reddit-collapse" data-thread-toggle>collapse</button>
+                                                            </div>
+                                                        </article>
+
+                                                        <div class="reddit-replies">
+                                                            <div class="reddit-branch" data-thread-branch>
+                                                                <article class="reddit-card" tabindex="0" data-work-target="interactive-button">
+                                                                    <div class="reddit-meta">
+                                                                        <span>Unit 9 · Lesson 3</span>
+                                                                        <span>· Posted as coursework</span>
+                                                                    </div>
+                                                                    <h4>Interactive Button Example</h4>
+                                                                    <p>A small page where clicking a button changes the message on screen.</p>
+                                                                    <div class="project-tags">
+                                                                        <span class="tag">DOM</span>
+                                                                        <span class="tag">Events</span>
+                                                                        <span class="tag">Text Change</span>
+                                                                    </div>
+                                                                    <div class="reddit-actions">
+                                                                        <button type="button" class="btn btn-primary reddit-toggle" data-work-target="interactive-button">Preview</button>
+                                                                        <a href="../../WebDev-Coursework-Eason-Cao/Unit-9/Lesson-3/Code challenge.html" class="btn btn-secondary" target="_blank" rel="noreferrer">Open File</a>
+                                                                    </div>
+                                                                </article>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="reddit-branch" data-thread-branch>
+                                                        <article class="reddit-card">
+                                                            <div class="reddit-meta">
+                                                                <span>Unit 5</span>
+                                                                <span>· Visual styling</span>
+                                                            </div>
+                                                            <h4>Unit 5</h4>
+                                                            <p>Styling work that explores typography, colors, and hierarchy.</p>
+                                                            <div class="reddit-actions">
+                                                                <button type="button" class="btn btn-secondary reddit-collapse" data-thread-toggle>collapse</button>
+                                                            </div>
+                                                        </article>
+
+                                                        <div class="reddit-replies">
+                                                            <div class="reddit-branch" data-thread-branch>
+                                                                <article class="reddit-card" tabindex="0" data-work-target="typography">
+                                                                    <div class="reddit-meta">
+                                                                        <span>Unit 5 · Lesson 3</span>
+                                                                        <span>· Posted as coursework</span>
+                                                                    </div>
+                                                                    <h4>Typography and Color</h4>
+                                                                    <p>Early styling practice for fonts, colors, and visual hierarchy in a web page.</p>
+                                                                    <div class="project-tags">
+                                                                        <span class="tag">Fonts</span>
+                                                                        <span class="tag">Color</span>
+                                                                        <span class="tag">Hierarchy</span>
+                                                                    </div>
+                                                                    <div class="reddit-actions">
+                                                                        <button type="button" class="btn btn-primary reddit-toggle" data-work-target="typography">Preview</button>
+                                                                        <a href="../../WebDev-Coursework-Eason-Cao/Unit-5/Lesson-3/Internal Style to the website.html" class="btn btn-secondary" target="_blank" rel="noreferrer">Open File</a>
+                                                                    </div>
+                                                                </article>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="reddit-branch" data-thread-branch>
+                                                        <article class="reddit-card">
+                                                            <div class="reddit-meta">
+                                                                <span>Unit 4</span>
+                                                                <span>· HTML foundations</span>
+                                                            </div>
+                                                            <h4>Unit 4</h4>
+                                                            <p>Foundational markup lessons for lists, media, and content structure.</p>
+                                                            <div class="reddit-actions">
+                                                                <button type="button" class="btn btn-secondary reddit-collapse" data-thread-toggle>collapse</button>
+                                                            </div>
+                                                        </article>
+
+                                                        <div class="reddit-replies">
+                                                            <div class="reddit-branch" data-thread-branch>
+                                                                <article class="reddit-card" tabindex="0" data-work-target="lists">
+                                                                    <div class="reddit-meta">
+                                                                        <span>Unit 4 · Lesson 2</span>
+                                                                        <span>· Posted as coursework</span>
+                                                                    </div>
+                                                                    <h4>Lists Challenge</h4>
+                                                                    <p>HTML list practice that can be reused as a structure for displaying work notes or milestones.</p>
+                                                                    <div class="project-tags">
+                                                                        <span class="tag">Lists</span>
+                                                                        <span class="tag">HTML</span>
+                                                                        <span class="tag">Structure</span>
+                                                                    </div>
+                                                                    <div class="reddit-actions">
+                                                                        <button type="button" class="btn btn-primary reddit-toggle" data-work-target="lists">Preview</button>
+                                                                        <a href="../../WebDev-Coursework-Eason-Cao/Unit-4/lesson-2/Code Challenge Lists.html" class="btn btn-secondary" target="_blank" rel="noreferrer">Open File</a>
+                                                                    </div>
+                                                                </article>
+                                                            </div>
+
+                                                            <div class="reddit-branch" data-thread-branch>
+                                                                <article class="reddit-card" tabindex="0" data-work-target="embedding-images">
+                                                                    <div class="reddit-meta">
+                                                                        <span>Unit 4 · Lesson 3</span>
+                                                                        <span>· Posted as coursework</span>
+                                                                    </div>
+                                                                    <h4>Embedding Images</h4>
+                                                                    <p>Image embedding exercises that helped with layout, source paths, and visual composition.</p>
+                                                                    <div class="project-tags">
+                                                                        <span class="tag">Images</span>
+                                                                        <span class="tag">Layout</span>
+                                                                        <span class="tag">Media</span>
+                                                                    </div>
+                                                                    <div class="reddit-actions">
+                                                                        <button type="button" class="btn btn-primary reddit-toggle" data-work-target="embedding-images">Preview</button>
+                                                                        <a href="../../WebDev-Coursework-Eason-Cao/Unit-4/lesson-3/Code Challenge Embedding Images.html" class="btn btn-secondary" target="_blank" rel="noreferrer">Open File</a>
+                                                                    </div>
+                                                                </article>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="reddit-branch" data-thread-branch>
+                                                <article class="reddit-card">
+                                                    <div class="reddit-meta">
+                                                        <span>Branch</span>
+                                                        <span>· Creative Production</span>
+                                                    </div>
+                                                    <h3>Creative Production</h3>
+                                                    <p>Visual planning and media decisions that support stronger web presentation.</p>
+                                                    <div class="project-tags">
+                                                        <span class="tag">Planning</span>
+                                                        <span class="tag">Media</span>
+                                                        <span class="tag">Presentation</span>
+                                                    </div>
+                                                    <div class="reddit-actions">
+                                                        <button type="button" class="btn btn-secondary reddit-collapse" data-thread-toggle>collapse</button>
+                                                    </div>
+                                                </article>
+                                                <div class="reddit-replies">
+                                                    <div class="reddit-branch" data-thread-branch>
+                                                        <article class="reddit-card">
+                                                            <div class="reddit-meta">
+                                                                <span>Reflection</span>
+                                                                <span>· Portfolio support</span>
+                                                            </div>
+                                                            <h4>Design Thinking</h4>
+                                                            <p>Creative choices guide how coursework is grouped, previewed, and explained.</p>
+                                                        </article>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="reddit-branch" data-thread-branch>
+                                                <article class="reddit-card">
+                                                    <div class="reddit-meta">
+                                                        <span>Branch</span>
+                                                        <span>· Programming Logic</span>
+                                                    </div>
+                                                    <h3>Programming Logic</h3>
+                                                    <p>Event handling, conditions, and structured thinking behind interactive pages.</p>
+                                                    <div class="project-tags">
+                                                        <span class="tag">Logic</span>
+                                                        <span class="tag">Events</span>
+                                                        <span class="tag">Structure</span>
+                                                    </div>
+                                                    <div class="reddit-actions">
+                                                        <button type="button" class="btn btn-secondary reddit-collapse" data-thread-toggle>collapse</button>
+                                                    </div>
+                                                </article>
+                                                <div class="reddit-replies">
+                                                    <div class="reddit-branch" data-thread-branch>
+                                                        <article class="reddit-card">
+                                                            <div class="reddit-meta">
+                                                                <span>Practice</span>
+                                                                <span>· DOM updates</span>
+                                                            </div>
+                                                            <h4>Interaction Patterns</h4>
+                                                            <p>The preview panel reuses the same kind of click-to-update logic practiced in the coursework.</p>
+                                                        </article>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="work-preview" aria-live="polite">
@@ -741,7 +1115,8 @@
                 }
             };
 
-            const tabs = workLab.querySelectorAll('.work-tab');
+            const lessonTriggers = workLab.querySelectorAll('.reddit-card, .reddit-toggle');
+            const threadToggles = workLab.querySelectorAll('[data-thread-toggle]');
             const title = workLab.querySelector('[data-work-title]');
             const description = workLab.querySelector('[data-work-description]');
             const points = workLab.querySelector('[data-work-points]');
@@ -749,12 +1124,17 @@
             const codeBlock = workLab.querySelector('[data-work-code]');
             const codeDrawer = workLab.querySelector('[data-code-drawer]');
 
+            const normalizeLessonKey = (key) => key.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
+
             const setActiveLesson = (key) => {
-                const lesson = lessons[key];
+                if (!key) return;
+
+                const normalizedKey = normalizeLessonKey(key);
+                const lesson = lessons[normalizedKey];
                 if (!lesson) return;
 
-                tabs.forEach(tab => {
-                    tab.classList.toggle('is-active', tab.dataset.workTarget === key);
+                lessonTriggers.forEach(trigger => {
+                    trigger.classList.toggle('is-active', trigger.dataset.workTarget && normalizeLessonKey(trigger.dataset.workTarget) === normalizedKey);
                 });
 
                 title.textContent = lesson.title;
@@ -765,8 +1145,31 @@
                 codeDrawer.open = true;
             };
 
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => setActiveLesson(tab.dataset.workTarget));
+            lessonTriggers.forEach(trigger => {
+                const activateLesson = () => setActiveLesson(trigger.dataset.workTarget || 'clientProfile');
+
+                trigger.addEventListener('click', event => {
+                    if (event.target.closest('a') || event.target.closest('[data-thread-toggle]')) return;
+                    activateLesson();
+                });
+
+                trigger.addEventListener('keydown', event => {
+                    if (event.key !== 'Enter' && event.key !== ' ') return;
+                    event.preventDefault();
+                    activateLesson();
+                });
+            });
+
+            threadToggles.forEach(toggle => {
+                toggle.addEventListener('click', event => {
+                    event.stopPropagation();
+                    const branch = toggle.closest('[data-thread-branch]');
+                    if (!branch) return;
+
+                    const isCollapsed = branch.classList.toggle('is-collapsed');
+                    toggle.textContent = isCollapsed ? 'expand' : 'collapse';
+                    toggle.setAttribute('aria-expanded', String(!isCollapsed));
+                });
             });
 
             setActiveLesson('clientProfile');
