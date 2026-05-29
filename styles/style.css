@@ -320,6 +320,7 @@ button,
 input[type="submit"],
 input[type="button"],
 .btn {
+    font-family: 'MGS1 Codec', 'MGS1 HUD', 'MGS1 Ammo', Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     display: inline-flex;
     align-items: center;
     justify-content: center;

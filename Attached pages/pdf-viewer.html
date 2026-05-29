@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eason Cao - PDF Viewer</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .pdf-shell {
+            margin-top: 22px;
+            border: 1px solid var(--panel-border);
+            background: var(--panel);
+            padding: 18px;
+            box-shadow: 0 0 18px rgba(0, 0, 0, 0.18);
+        }
+
+        .pdf-header {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .pdf-header-left {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .pdf-title {
+            color: var(--text-lighter);
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .pdf-subtitle {
+            color: var(--text-light);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .pdf-controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .pdf-embed {
+            width: 100%;
+            height: min(72vh, 720px);
+            border: 1px solid rgba(114, 255, 179, 0.16);
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        .pdf-fallback {
+            display: none;
+            margin-top: 12px;
+            color: var(--text-light);
+        }
+
+        .pdf-fallback a {
+            color: var(--accent-light);
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(114, 255, 179, 0.35);
+        }
+
+        @media (max-width: 768px) {
+            .pdf-embed {
+                height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="page-section">
+        <div class="page-container">
+            <p class="intro-text">Attached Pages / Documents</p>
+            <h1>PDF Document Viewer</h1>
+            <p>
+                This page embeds a PDF using <code><embed></code>. Replace <code>pdf/sample.pdf</code>
+                with your real file path.
+            </p>
+
+            <div class="pdf-shell">
+                <div class="pdf-header">
+                    <div class="pdf-header-left">
+                        <p class="pdf-title">Selected PDF</p>
+                        <p class="pdf-subtitle" id="pdf-subtitle">Loading…</p>
+                    </div>
+
+                    <div class="pdf-controls" aria-label="PDF controls">
+                        <button class="btn btn-primary" type="button" id="btnPrev">
+                            <i class="fa-solid fa-arrow-left"></i> Prev
+                        </button>
+                        <button class="btn" type="button" id="btnNext">
+                            Next <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <embed
+                    class="pdf-embed"
+                    id="pdfEmbed"
+                    type="application/pdf"
+                    src="pdf/sample.pdf"
+                    aria-label="PDF preview"
+                />
+
+                <div class="pdf-fallback" id="pdfFallback">
+                    Your browser cannot display this PDF inline.
+                    <a id="pdfFallbackLink" href="pdf/sample.pdf" target="_blank" rel="noreferrer">Download / Open the PDF</a>
+                </div>
+            </div>
+
+            <div class="branch-footer" style="margin-top: 24px;">
+                <a href="../projects.html" class="btn btn-primary">Back to Portfolio</a>
+                <a href="../index.html" class="btn">Home</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Eason Cao. All rights reserved.</p>
+    </footer>
+
+    <script>
+        (function () {
+            const embed = document.getElementById('pdfEmbed');
+            const subtitle = document.getElementById('pdf-subtitle');
+            const fallback = document.getElementById('pdfFallback');
+            const fallbackLink = document.getElementById('pdfFallbackLink');
+
+            // Prev/Next for PDFs via fragment (works in many browsers / PDF viewers)
+            let page = 1;
+            const baseSrc = embed.getAttribute('src');
+
+            const sync = () => {
+                embed.setAttribute('src', baseSrc + '#page=' + page);
+                subtitle.textContent = `Page ${page} (preview)`;
+            };
+
+            document.getElementById('btnPrev').addEventListener('click', () => {
+                page = Math.max(1, page - 1);
+                sync();
+            });
+
+            document.getElementById('btnNext').addEventListener('click', () => {
+                page += 1;
+                sync();
+            });
+
+            // Basic fallback: show fallback link if embed fails to load quickly.
+            const showFallback = () => {
+                fallback.style.display = 'block';
+                fallbackLink.href = baseSrc;
+                subtitle.textContent = 'PDF preview not available';
+            };
+
+            // If the browser keeps showing “Loading…”, switch to fallback.
+            setTimeout(() => {
+                // Many browsers don't expose load errors for <embed>, so we do a light heuristic.
+                // If subtitle is still default, show fallback.
+                if (subtitle.textContent === 'Loading…') showFallback();
+            }, 1500);
+
+            sync();
+        })();
+    </script>
+</body>
+</html>
+
