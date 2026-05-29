@@ -11,28 +11,46 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add fade-in animation to sections on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+// Add fade-in animation to sections on scroll without risking hidden content.
+// The content stays visible by default, then enhanced browsers get a small motion effect.
+const sections = document.querySelectorAll('section');
+const revealSection = (section) => {
+    section.style.opacity = '1';
+    section.style.transform = 'translateY(0)';
 };
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Apply animation to sections
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
+sections.forEach(section => {
+    section.style.opacity = '1';
+    section.style.transform = 'translateY(0)';
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(section);
 });
+
+if ('IntersectionObserver' in window) {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                revealSection(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        section.style.opacity = '0.01';
+        section.style.transform = 'translateY(20px)';
+        observer.observe(section);
+    });
+
+    // Fallback for browsers or embedded previews that do not fire observers promptly.
+    window.setTimeout(() => {
+        sections.forEach(revealSection);
+    }, 700);
+}
 
 // Simple form validation for contact (if added later)
 function validateForm() {

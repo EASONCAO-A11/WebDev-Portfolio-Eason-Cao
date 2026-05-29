@@ -1116,7 +1116,7 @@
                 }
             };
 
-            const lessonTriggers = workLab.querySelectorAll('.reddit-card, .reddit-toggle');
+            const lessonTriggers = workLab.querySelectorAll('[data-work-target]');
             const threadToggles = workLab.querySelectorAll('[data-thread-toggle]');
             const title = workLab.querySelector('[data-work-title]');
             const description = workLab.querySelector('[data-work-description]');
@@ -1135,7 +1135,7 @@
                 if (!lesson) return;
 
                 lessonTriggers.forEach(trigger => {
-                    trigger.classList.toggle('is-active', trigger.dataset.workTarget && normalizeLessonKey(trigger.dataset.workTarget) === normalizedKey);
+                    trigger.classList.toggle('is-active', normalizeLessonKey(trigger.dataset.workTarget) === normalizedKey);
                 });
 
                 title.textContent = lesson.title;
@@ -1147,7 +1147,7 @@
             };
 
             lessonTriggers.forEach(trigger => {
-                const activateLesson = () => setActiveLesson(trigger.dataset.workTarget || 'clientProfile');
+                const activateLesson = () => setActiveLesson(trigger.dataset.workTarget);
 
                 trigger.addEventListener('click', event => {
                     if (event.target.closest('a') || event.target.closest('[data-thread-toggle]')) return;
