@@ -49,37 +49,53 @@ if ('IntersectionObserver' in window) {
     // Fallback for browsers or embedded previews that do not fire observers promptly.
     window.setTimeout(() => {
         sections.forEach(revealSection);
-    }, 700);
+    }, 3000); // 3s timeout to reduce risk of flash
 }
 
-// Simple form validation for contact (if added later)
-function validateForm() {
-    // Placeholder for form validation
-    console.log('Form validation would go here');
-}
+// ===== Navigation: highlight current page =====
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage) {
+            link.classList.add('active');
+        }
+    });
+});
 
-// Handle contact form submission
+// ===== Contact Form =====
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
 
-            if (name && email && message) {
-                alert('Thank you for your message! I\'ll get back to you soon.');
-                contactForm.reset();
-            } else {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Validation
+            if (!name || !email || !message) {
                 alert('Please fill in all fields.');
+                return;
             }
+
+            // Email format validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // Success (for now — add a real backend or Formspree later)
+            alert('Thank you for your message! I\'ll get back to you soon.');
+            contactForm.reset();
         });
     }
 });
-// Add some interactive effects
+
+// ===== Click effect on project cards =====
 document.addEventListener('DOMContentLoaded', function() {
-    // Add click effect to project cards
     document.querySelectorAll('.project-card').forEach(card => {
         card.addEventListener('click', function() {
             this.style.transform = 'scale(0.95)';
@@ -88,16 +104,18 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 150);
         });
     });
+});
 
-    // Dynamic year in footer
+// ===== Dynamic year in footer =====
+document.addEventListener('DOMContentLoaded', function() {
     const footerYear = document.querySelector('footer p');
     if (footerYear) {
         const currentYear = new Date().getFullYear();
         footerYear.innerHTML = `&copy; ${currentYear} Eason Cao. All rights reserved.`;
     }
-})
+});
 
-// Wrap standalone numeric text nodes with <span class="num"> for MGS1 Ammo font
+// ===== Wrap standalone numeric text nodes with <span class="num"> for MGS1 Ammo font =====
 document.addEventListener('DOMContentLoaded', function() {
     function wrapNumbers(root) {
         const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);

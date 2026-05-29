@@ -41,10 +41,13 @@ html {
     font-size: 20px; /* changed to 20px per request */
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 :root {
@@ -519,7 +522,7 @@ input[type="button"].active::before {
 
 /* Footer */
 footer {
-    background-color: rgba(22, 33, 62, 0.8);
+    background-color: rgba(5, 11, 10, 0.95);
     border-top: 1px solid rgba(114, 255, 179, 0.16);
     padding: 40px 20px;
     text-align: center;
@@ -622,7 +625,6 @@ footer p {
 }
 
 .process-number {
-    display: inline-block;
     width: 40px;
     height: 40px;
     background: linear-gradient(135deg, var(--accent-deep), var(--accent-light));
