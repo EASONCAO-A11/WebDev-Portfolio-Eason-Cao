@@ -622,37 +622,60 @@ footer p {
     border-color: rgba(114,255,179,0.95);
 }
 
-/* ===== Accessibility modes ===== */
-.cb-mode::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    pointer-events: none;
-    /* default: green-blind-ish overlay (changed by specific classes below) */
-    background: rgba(255, 255, 0, 0.10);
-    mix-blend-mode: multiply;
+/* ===== Accessibility modes - CSS Variable Palettes =====
+   Using CSS variable overrides instead of filter overlays.
+   Text stays sharp, layout intact, only colors change. */
+
+/* Green-blind (Deuteranopia) — blue-purple scheme */
+.cb-mode.green,
+.cb-mode {
+    --text-light: #d0d0ee;
+    --text-lighter: #e8e8ff;
+    --accent-green: #9a8aff;
+    --accent-light: #b8aaff;
+    --accent-deep: #7a68dd;
+    --accent-blue: var(--accent-deep);
+    --muted: #8a8ab0;
+    --panel-border: rgba(154, 138, 255, 0.18);
 }
 
-/* Red-blind mode */
+/* Red-blind (Protanopia) — blue-gold scheme */
 .cb-mode.red {
-    /* remove other overlay tint */
-}
-.cb-mode.red::after {
-    background: rgba(255, 0, 0, 0.12);
-    mix-blend-mode: multiply;
-}
-
-/* Green-blind mode */
-.cb-mode.green::after {
-    background: rgba(0, 200, 0, 0.12);
-    mix-blend-mode: multiply;
+    --text-light: #c8daf8;
+    --text-lighter: #ddeeff;
+    --accent-green: #6ea8ff;
+    --accent-light: #8bc4ff;
+    --accent-deep: #3a7cc9;
+    --accent-blue: var(--accent-deep);
+    --muted: #7a8ea8;
+    --panel-border: rgba(110, 168, 255, 0.18);
 }
 
-/* Blue-blind mode */
-.cb-mode.blue::after {
-    background: rgba(0, 120, 255, 0.12);
-    mix-blend-mode: multiply;
+/* Blue-blind (Tritanopia) — warm orange-red scheme */
+.cb-mode.blue {
+    --text-light: #f0d8b8;
+    --text-lighter: #ffe8d0;
+    --accent-green: #ff9966;
+    --accent-light: #ffbb88;
+    --accent-deep: #dd7733;
+    --accent-blue: var(--accent-deep);
+    --muted: #b89878;
+    --panel-border: rgba(255, 153, 102, 0.18);
+}
+
+/* Total color-blind (Achromatopsia) — grayscale */
+.cb-mode.gray {
+    --bg-dark: #0a0a0a;
+    --bg-darker: #050505;
+    --text-light: #cccccc;
+    --text-lighter: #eeeeee;
+    --accent-green: #aaaaaa;
+    --accent-light: #cccccc;
+    --accent-deep: #888888;
+    --accent-blue: var(--accent-deep);
+    --muted: #666666;
+    --panel: rgba(20, 20, 20, 0.82);
+    --panel-border: rgba(255, 255, 255, 0.12);
 }
 
 

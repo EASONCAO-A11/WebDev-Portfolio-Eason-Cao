@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (m === 'cb' || m === 'cb_cycle' || m === 'cb_red' || m === 'cb_green' || m === 'cb_blue') {
                 // cycle: none -> green -> blue -> red -> none
-                const order = ['none','green','blue','red'];
+                const order = ['none','green','blue','red','gray'];
                 const cbOnNow = localStorage.getItem(LS.cb) === '1';
                 const currentRaw = cbOnNow ? (localStorage.getItem('acc_cb_variant') || 'green') : 'none';
                 const idx = order.indexOf(currentRaw);
