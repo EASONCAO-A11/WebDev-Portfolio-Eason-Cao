@@ -548,9 +548,10 @@ footer p {
 }
 
 .accessibility-controls {
-    position: absolute;
-    right: 18px;
-    top: 10px;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    position: relative;
     z-index: 2000;
 }
 
@@ -563,14 +564,27 @@ footer p {
 .accessibility-toggle {
     background: var(--acc-control-bg);
     color: var(--text-lighter);
-    border: 1px solid var(--acc-control-border);
+    border: 1px solid rgba(114,255,179,0.22);
     cursor: pointer;
-    padding: 10px 12px;
-    min-width: 44px;
-    height: 40px;
+    padding: 8px 10px;
+    min-width: 40px;
+    height: 38px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 0 0 1px rgba(114,255,179,0.08), 0 0 0 1px rgba(114,255,179,0.05);
+    font-family: 'MGS1 Codec', 'MGS1 HUD', 'Poppins', system-ui, sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    gap: 6px;
+}
+.accessibility-toggle:hover {
+    border-color: rgba(114,255,179,0.6);
+    color: var(--accent-light);
+    box-shadow: 0 0 12px rgba(114,255,179,0.15);
 }
 
 .accessibility-toggle:focus-visible {
@@ -584,42 +598,60 @@ footer p {
     top: 48px;
     width: 260px;
     background: rgba(3, 12, 11, 0.98);
-    border: 1px solid var(--acc-control-border);
-    padding: 12px;
+    border: 1px solid rgba(114,255,179,0.18);
+    padding: 16px;
     display: none;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
 }
 
 .accessibility-panel.open { display: block; }
 
 .accessibility-panel h4 {
-    margin: 0 0 10px 0;
-    font-size: 0.95rem;
-    letter-spacing: 0.08em;
+    margin: 0 0 12px 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--text-lighter);
+    font-family: 'MGS1 Codec', 'MGS1 HUD', 'Poppins', system-ui, sans-serif;
 }
 
 .accessibility-mode-row {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 6px;
 }
 
 .acc-mode-btn {
     width: 100%;
     justify-content: flex-start;
-    padding: 10px 12px;
-    border: 1px solid rgba(114,255,179,0.22);
-    background: rgba(0,0,0,0.25);
+    padding: 10px 14px;
+    min-width: 0;
+    border: 1px solid rgba(114,255,179,0.18);
+    background: rgba(3, 12, 11, 0.72);
     color: var(--text-light);
     cursor: pointer;
+    font-family: 'MGS1 Codec', 'MGS1 HUD', 'Poppins', system-ui, sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: left;
+    box-shadow: inset 0 0 0 1px rgba(114,255,179,0.08), 0 0 0 1px rgba(114,255,179,0.05);
+    transition: all 0.2s ease;
+    border-radius: 0;
 }
 
-.acc-mode-btn:hover { background: var(--acc-control-hover); }
+.acc-mode-btn:hover {
+    background: var(--acc-control-hover);
+    border-color: rgba(114,255,179,0.4);
+    color: var(--accent-light);
+    transform: translateX(2px);
+}
+
 .acc-mode-btn[aria-pressed="true"] {
     background: rgba(114,255,179,0.18);
     color: #03120b;
-    border-color: rgba(114,255,179,0.95);
+    border-color: rgba(114,255,179,0.85);
+    box-shadow: 0 0 12px rgba(114,255,179,0.18);
 }
 
 /* ===== Accessibility modes - CSS Variable Palettes =====
