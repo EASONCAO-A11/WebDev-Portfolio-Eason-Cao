@@ -182,9 +182,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const translate = localStorage.getItem(LS.translate) === '1';
 
         // Color-blind variants: red/green/blue + full-screen overlay
-        root.classList.toggle('cb-mode', cbOn);
-        root.classList.remove('cb-mode', 'cb-mode.red', 'cb-mode.green', 'cb-mode.blue');
-        if (cbOn) root.classList.add('cb-mode', `cb-mode.${cbVariant}`);
+        root.classList.remove('cb-mode', 'red', 'green', 'blue', 'gray');
+        if (cbOn) {
+            root.classList.add('cb-mode');
+            root.classList.add(cbVariant);
+        }
 
         root.classList.toggle('narrator-mode', narrator);
         root.classList.toggle('translated-active', translate);
