@@ -21,6 +21,24 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+
+            <div class="accessibility-controls" aria-label="Accessibility controls">
+                <button type="button" class="accessibility-toggle" id="acc-toggle" aria-expanded="false" aria-controls="accessibility-panel" aria-label="Toggle accessibility menu">
+                    <i class="fas fa-universal-access" aria-hidden="true"></i>
+                </button>
+
+                <div class="accessibility-panel" id="accessibility-panel" role="region" aria-label="Accessibility menu">
+                    <h4>Accessibility</h4>
+                    <div class="accessibility-mode-row">
+                        <button type="button" class="acc-mode-btn" id="acc-cb-cycle" data-acc-mode="cb_cycle" aria-pressed="false">Colorblind (cycle)</button>
+                        <button type="button" class="acc-mode-btn" id="acc-narrator" data-acc-mode="narrator" aria-pressed="false">Narrator mode</button>
+                        <button type="button" class="acc-mode-btn" id="acc-translate" data-acc-mode="translate" aria-pressed="false">Translate: EN / 中文</button>
+                    </div>
+                    <div style="margin-top:10px;">
+                        <button type="button" class="acc-mode-btn" id="acc-tts-stop" aria-pressed="false">Stop Narrator</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -43,53 +61,15 @@
                 </div>
                 
                 <div class="project-card">
-                    <h3>C++ Search Algorithm</h3>
-                    <p class="project-type">Programming</p>
-                    <p>Implemented various search algorithms in C++, including linear search, binary search, and advanced search techniques. Demonstrates understanding of algorithms and data structures.</p>
+                    <h3>Film project</h3>
+                    <p class="project-type">Film project</p>
+                    <p>Here is the PDF showing my working process on filmmaking.</p>
                     <div class="project-tags">
-                        <span class="tag">C++</span>
-                        <span class="tag">Algorithms</span>
-                        <span class="tag">Data Structures</span>
+                        <span class="tag">PDF</span>
+                        <span class="tag">Film process</span>
                     </div>
-                    <a href="#" class="btn btn-secondary" style="margin-top: 15px;">View Code</a>
+                    <a href="attached-pages/pdf-viewer.html" class="btn btn-secondary" style="margin-top: 15px;">View Code</a>
                 </div>
-                
-                <div class="project-card">
-                    <h3>Git Version Control Project</h3>
-                    <p class="project-type">Development Tools</p>
-                    <p>A comprehensive project demonstrating Git workflows, including branching, merging, conflict resolution, and collaboration techniques. Shows proficiency with version control systems.</p>
-                    <div class="project-tags">
-                        <span class="tag">Git</span>
-                        <span class="tag">GitHub</span>
-                        <span class="tag">Collaboration</span>
-                    </div>
-                    <a href="#" class="btn btn-secondary" style="margin-top: 15px;">View Repository</a>
-                </div>
-                
-                <div class="project-card">
-                    <h3>Interactive Web Components</h3>
-                    <p class="project-type">Web Development</p>
-                    <p>Built reusable and interactive web components using JavaScript, including modals, dropdowns, and dynamic content loading. Demonstrates JavaScript proficiency and component-based design.</p>
-                    <div class="project-tags">
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">Components</span>
-                        <span class="tag">Interactive</span>
-                    </div>
-                    <a href="#" class="btn btn-secondary" style="margin-top: 15px;">View Demo</a>
-                </div>
-                
-                <div class="project-card">
-                    <h3>Responsive Design Showcase</h3>
-                    <p class="project-type">Web Design</p>
-                    <p>A collection of responsive web layouts using Flexbox and CSS Grid, demonstrating mobile-first design principles and adaptive layouts across different screen sizes.</p>
-                    <div class="project-tags">
-                        <span class="tag">CSS Grid</span>
-                        <span class="tag">Flexbox</span>
-                        <span class="tag">Mobile First</span>
-                    </div>
-                    <a href="#" class="btn btn-secondary" style="margin-top: 15px;">View Examples</a>
-                </div>
-                
             </div>
         </div>
     </section>

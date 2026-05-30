@@ -52,6 +52,13 @@ body {
 
 :root {
     --bg-dark: #050b0b;
+    /* ===== Accessibility modes defaults ===== */
+    --cb-bg: #050b0b;
+    --cb-text: #b8ffdc;
+    --cb-accent: #72ffb3;
+    --narrator-text: #eafff3;
+    --narrator-panel: rgba(0, 0, 0, 0.6);
+
     --bg-darker: #041212;
     --text-light: #b8ffdc;
     --text-lighter: #e8ffe6;
@@ -531,9 +538,162 @@ footer {
 
 footer p {
     color: var(--text-light);
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
 }
+
+/* ===== Top bar accessibility menu ===== */
+:root {
+    --acc-control-bg: rgba(3, 12, 11, 0.98);
+    --acc-control-border: rgba(114,255,179,0.25);
+    --acc-control-hover: rgba(114,255,179,0.18);
+}
+
+.accessibility-controls {
+    position: absolute;
+    right: 18px;
+    top: 10px;
+    z-index: 2000;
+}
+
+.accessibility-controls-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.accessibility-toggle {
+    background: var(--acc-control-bg);
+    color: var(--text-lighter);
+    border: 1px solid var(--acc-control-border);
+    cursor: pointer;
+    padding: 10px 12px;
+    min-width: 44px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accessibility-toggle:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(114,255,179,0.35);
+}
+
+.accessibility-panel {
+    position: absolute;
+    right: 0;
+    top: 48px;
+    width: 260px;
+    background: rgba(3, 12, 11, 0.98);
+    border: 1px solid var(--acc-control-border);
+    padding: 12px;
+    display: none;
+}
+
+.accessibility-panel.open { display: block; }
+
+.accessibility-panel h4 {
+    margin: 0 0 10px 0;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-lighter);
+}
+
+.accessibility-mode-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
+.acc-mode-btn {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 10px 12px;
+    border: 1px solid rgba(114,255,179,0.22);
+    background: rgba(0,0,0,0.25);
+    color: var(--text-light);
+    cursor: pointer;
+}
+
+.acc-mode-btn:hover { background: var(--acc-control-hover); }
+.acc-mode-btn[aria-pressed="true"] {
+    background: rgba(114,255,179,0.18);
+    color: #03120b;
+    border-color: rgba(114,255,179,0.95);
+}
+
+/* ===== Accessibility modes ===== */
+.cb-mode::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    /* default: green-blind-ish overlay (changed by specific classes below) */
+    background: rgba(255, 255, 0, 0.10);
+    mix-blend-mode: multiply;
+}
+
+/* Red-blind mode */
+.cb-mode.red {
+    /* remove other overlay tint */
+}
+.cb-mode.red::after {
+    background: rgba(255, 0, 0, 0.12);
+    mix-blend-mode: multiply;
+}
+
+/* Green-blind mode */
+.cb-mode.green::after {
+    background: rgba(0, 200, 0, 0.12);
+    mix-blend-mode: multiply;
+}
+
+/* Blue-blind mode */
+.cb-mode.blue::after {
+    background: rgba(0, 120, 255, 0.12);
+    mix-blend-mode: multiply;
+}
+
+
+.narrator-mode {
+    color: var(--narrator-text);
+}
+
+.narrator-mode body {
+    background-image: none !important;
+}
+
+.narrator-mode .page-section {
+    background: rgba(0,0,0,0.6) !important;
+}
+
+.narrator-mode .page-section p,
+.narrator-mode .page-section li,
+.narrator-mode .page-section a {
+    font-size: 1.1rem !important;
+    line-height: 1.9 !important;
+}
+
+.narrator-mode header,
+.narrator-mode footer {
+    background-color: rgba(0,0,0,0.85) !important;
+}
+
+.narrator-mode * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+}
+
+/* Translation toggle readability */
+.translated-text {
+    display: none;
+}
+
+
+.translated-active .original-text { display: none; }
+.translated-active .translated-text { display: inline; }
+
 
 /* Page Sections */
 .page-section {

@@ -21,6 +21,24 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+
+            <div class="accessibility-controls" aria-label="Accessibility controls">
+                <button type="button" class="accessibility-toggle" id="acc-toggle" aria-expanded="false" aria-controls="accessibility-panel" aria-label="Toggle accessibility menu">
+                    <i class="fas fa-universal-access" aria-hidden="true"></i>
+                </button>
+
+                <div class="accessibility-panel" id="accessibility-panel" role="region" aria-label="Accessibility menu">
+                    <h4>Accessibility</h4>
+                    <div class="accessibility-mode-row">
+                        <button type="button" class="acc-mode-btn" id="acc-cb-cycle" data-acc-mode="cb_cycle" aria-pressed="false">Colorblind (cycle)</button>
+                        <button type="button" class="acc-mode-btn" id="acc-narrator" data-acc-mode="narrator" aria-pressed="false">Narrator mode</button>
+                        <button type="button" class="acc-mode-btn" id="acc-translate" data-acc-mode="translate" aria-pressed="false">Translate: EN / 中文</button>
+                    </div>
+                    <div style="margin-top:10px;">
+                        <button type="button" class="acc-mode-btn" id="acc-tts-stop" aria-pressed="false">Stop Narrator</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
