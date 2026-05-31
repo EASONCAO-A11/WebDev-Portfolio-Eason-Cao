@@ -84,8 +84,7 @@
             <p class="intro-text">Attached Pages / Documents</p>
             <h1>PDF Document Viewer</h1>
             <p>
-                This page embeds a PDF using <code><embed></code>. Replace <code>pdf/sample.pdf</code>
-                with your real file path.
+                This page demonstrates a simple PDF viewer embedded in a web page.
             </p>
 
             <div class="pdf-shell">
@@ -94,29 +93,19 @@
                         <p class="pdf-title">Selected PDF</p>
                         <p class="pdf-subtitle" id="pdf-subtitle">Loading…</p>
                     </div>
-
-                    <div class="pdf-controls" aria-label="PDF controls">
-                        <button class="btn btn-primary" type="button" id="btnPrev">
-                            <i class="fa-solid fa-arrow-left"></i> Prev
-                        </button>
-                        <button class="btn" type="button" id="btnNext">
-                            Next <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
+                    
                 <embed
                     class="pdf-embed"
                     id="pdfEmbed"
                     type="application/pdf"
-                    src="./BLOOD DEBT.pdf"
+                    src="BLOOD DEBT.pdf"
                     aria-label="PDF preview"
                 />
 
 
                 <div class="pdf-fallback" id="pdfFallback">
                     Your browser cannot display this PDF inline.
-                    <a id="pdfFallbackLink" href="pdf/sample.pdf" target="_blank" rel="noreferrer">Download / Open the PDF</a>
+                    <a id="pdfFallbackLink" href="BLOOD DEBT.pdf" target="_blank" rel="noreferrer">Download / Open the PDF</a>
                 </div>
             </div>
 
