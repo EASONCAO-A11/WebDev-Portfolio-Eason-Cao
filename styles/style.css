@@ -1029,7 +1029,6 @@ footer p {
     color: var(--text-lighter);
 }
 
-/* Tools List */
 .tools-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));

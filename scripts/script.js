@@ -143,11 +143,9 @@ document.addEventListener('DOMContentLoaded', function() {
     wrapNumbers(document.body);
 });
 
-// ===== Accessibility: top bar, colorblind, narrator(TTS), translate(EN/中文) =====
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.documentElement;
 
-    // Top bar collapse toggle (in case HTML exists)
     const accToggle = document.getElementById('acc-toggle');
     const accPanel = document.getElementById('accessibility-panel');
 
@@ -164,7 +162,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Mode toggles
     const modeButtons = document.querySelectorAll('[data-acc-mode]');
     const stopBtn = document.getElementById('acc-tts-stop');
 
@@ -181,7 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const narrator = localStorage.getItem(LS.narrator) === '1';
         const translate = localStorage.getItem(LS.translate) === '1';
 
-        // Color-blind variants: red/green/blue + full-screen overlay
         root.classList.remove('cb-mode', 'red', 'green', 'blue', 'gray');
         if (cbOn) {
             root.classList.add('cb-mode');
