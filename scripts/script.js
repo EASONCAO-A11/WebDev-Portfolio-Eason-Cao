@@ -353,3 +353,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+/* View Code expand/collapse for coursework cards */
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.view-code-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetId = btn.getAttribute('data-target');
+            const codeBlock = document.getElementById(targetId);
+            if (!codeBlock) return;
+
+            const isHidden = codeBlock.hasAttribute('hidden');
+            if (isHidden) {
+                codeBlock.removeAttribute('hidden');
+                btn.classList.add('active');
+                btn.textContent = 'Hide Code';
+            } else {
+                codeBlock.setAttribute('hidden', '');
+                btn.classList.remove('active');
+                btn.textContent = 'View Code';
+            }
+        });
+    });
+});
+

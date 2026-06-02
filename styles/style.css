@@ -1204,6 +1204,40 @@ footer p {
     border: 1px solid rgba(114, 255, 179, 0.22);
 }
 
+/* Expandable code blocks for coursework View Code buttons */
+.code-block {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(114, 255, 179, 0.15);
+    border-top: none;
+    padding: 16px 20px;
+    margin: -1px 0 0 0;
+    overflow-x: auto;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.code-block code {
+    font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+    color: #e0e0e0;
+    white-space: pre;
+}
+
+.code-block:not([hidden]) {
+    display: block;
+}
+
+.view-code-btn {
+    cursor: pointer;
+    width: 100%;
+}
+
+.view-code-btn.active {
+    background: rgba(114, 255, 179, 0.25);
+    border-color: var(--accent-light);
+}
+
 .contact-card form {
     display: flex;
     flex-direction: column;

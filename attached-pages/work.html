@@ -849,8 +849,27 @@
                                         <span class="tag">Button</span>
                                         <span class="tag">JavaScript</span>
                                     </div>
-                                    <a href="../../WebDev-Coursework-Eason-Cao/Unit-10/Lesson-1/Code Challenge/Index.html" class="btn btn-secondary" target="_blank" rel="noreferrer">View File</a>
+                                    <button class="btn btn-secondary view-code-btn" data-target="code-unit10-l1">View Code</button>
                                 </article>
+                                <pre class="code-block" id="code-unit10-l1" hidden><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Client Profile Page&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/styles.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;profile-container&quot;&gt;
+        &lt;h1&gt;Welcome to My Client&#x27;s Page&lt;/h1&gt;
+        &lt;img src=&quot;images/profile.jpg&quot; alt=&quot;Client Profile&quot; class=&quot;profile-photo&quot;&gt;
+        &lt;p&gt;This is a profile photo of the client. Hover over the image to see a fun effect!&lt;/p&gt;
+        &lt;button id=&quot;greetBtn&quot;&gt;Say Hello&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;script src=&quot;js/script.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
                                 <article class="project-card coursework-card">
                                     <p class="project-type">Unit 9 · Lesson 3</p>
@@ -861,8 +880,43 @@
                                         <span class="tag">Events</span>
                                         <span class="tag">Text Change</span>
                                     </div>
-                                    <a href="../../WebDev-Coursework-Eason-Cao/Unit-9/Lesson-3/Code challenge.html" class="btn btn-secondary" target="_blank" rel="noreferrer">View File</a>
+                                    <button class="btn btn-secondary view-code-btn" data-target="code-unit9-l3">View Code</button>
                                 </article>
+                                <pre class="code-block" id="code-unit9-l3" hidden><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Interactive Button Example&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #message {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;h1&gt;Welcome to My Interactive Page&lt;/h1&gt;
+    &lt;p id=&quot;message&quot;&gt;Hello World!&lt;/p&gt;
+    &lt;button onclick=&quot;showSmiley()&quot;&gt;Click Me!&lt;/button&gt;
+
+    &lt;script&gt;
+        function showSmiley() {
+            let messageElement = document.getElementById(&quot;message&quot;);
+            messageElement.textContent = &quot;:)&quot;;
+        }
+    &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
                                 <article class="project-card coursework-card">
                                     <p class="project-type">Unit 4 · Lesson 2</p>
@@ -873,8 +927,57 @@
                                         <span class="tag">HTML</span>
                                         <span class="tag">Structure</span>
                                     </div>
-                                    <a href="../../WebDev-Coursework-Eason-Cao/Unit-4/lesson-2/Code Challenge Lists.html" class="btn btn-secondary" target="_blank" rel="noreferrer">View File</a>
+                                    <button class="btn btn-secondary view-code-btn" data-target="code-unit4-l2">View Code</button>
                                 </article>
+                                <pre class="code-block" id="code-unit4-l2" hidden><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Client Web Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;h1&gt;Client Profile&lt;/h1&gt;
+
+  &lt;h2&gt;Services Offered&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Photography&lt;/li&gt;
+    &lt;li&gt;Short-form Video Production&lt;/li&gt;
+    &lt;li&gt;Social Media Content Planning&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;h2&gt;Project Steps&lt;/h2&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Interview the client&lt;/li&gt;
+    &lt;li&gt;Define the client&#x27;s goals&lt;/li&gt;
+    &lt;li&gt;Brainstorm design ideas&lt;/li&gt;
+    &lt;li&gt;Build the first version of the webpage&lt;/li&gt;
+  &lt;/ol&gt;
+
+  &lt;h2&gt;Client Information&lt;/h2&gt;
+  &lt;dl&gt;
+    &lt;dt&gt;Name&lt;/dt&gt;
+    &lt;dd&gt;Eason&lt;/dd&gt;
+    &lt;dt&gt;Location&lt;/dt&gt;
+    &lt;dd&gt;Shanghai, China&lt;/dd&gt;
+    &lt;dt&gt;Focus&lt;/dt&gt;
+    &lt;dd&gt;Community-based lifestyle storytelling&lt;/dd&gt;
+  &lt;/dl&gt;
+
+  &lt;h2&gt;Website Goals&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Showcase creative work
+      &lt;ul&gt;
+        &lt;li&gt;Photography portfolio&lt;/li&gt;
+        &lt;li&gt;Short video highlights&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Share personal stories&lt;/li&gt;
+    &lt;li&gt;Build a stronger connection with the audience&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
                                 <article class="project-card coursework-card">
                                     <p class="project-type">Unit 4 · Lesson 3</p>
@@ -885,8 +988,60 @@
                                         <span class="tag">Layout</span>
                                         <span class="tag">Media</span>
                                     </div>
-                                    <a href="../../WebDev-Coursework-Eason-Cao/Unit-4/lesson-3/Code Challenge Embedding Images.html" class="btn btn-secondary" target="_blank" rel="noreferrer">View File</a>
+                                    <button class="btn btn-secondary view-code-btn" data-target="code-unit4-l3">View Code</button>
                                 </article>
+                                <pre class="code-block" id="code-unit4-l3" hidden><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Client Web Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;h1&gt;Client Profile&lt;/h1&gt;
+
+  &lt;h2&gt;Client Photo&lt;/h2&gt;
+  &lt;img src=&quot;images/client.jpg&quot; alt=&quot;Photo of the client&quot; width=&quot;300&quot;&gt;
+
+  &lt;h2&gt;Services Offered&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Photography&lt;/li&gt;
+    &lt;li&gt;Short-form Video Production&lt;/li&gt;
+    &lt;li&gt;Social Media Content Planning&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;h2&gt;Project Steps&lt;/h2&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Interview the client&lt;/li&gt;
+    &lt;li&gt;Define the client&#x27;s goals&lt;/li&gt;
+    &lt;li&gt;Brainstorm design ideas&lt;/li&gt;
+    &lt;li&gt;Build the first version of the webpage&lt;/li&gt;
+  &lt;/ol&gt;
+
+  &lt;h2&gt;Client Information&lt;/h2&gt;
+  &lt;dl&gt;
+    &lt;dt&gt;Name&lt;/dt&gt;
+    &lt;dd&gt;Eason&lt;/dd&gt;
+    &lt;dt&gt;Location&lt;/dt&gt;
+    &lt;dd&gt;Shanghai, China&lt;/dd&gt;
+    &lt;dt&gt;Focus&lt;/dt&gt;
+    &lt;dd&gt;Community-based lifestyle storytelling&lt;/dd&gt;
+  &lt;/dl&gt;
+
+  &lt;h2&gt;Website Goals&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Showcase creative work
+      &lt;ul&gt;
+        &lt;li&gt;Photography portfolio&lt;/li&gt;
+        &lt;li&gt;Short video highlights&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Share personal stories&lt;/li&gt;
+    &lt;li&gt;Build a stronger connection with the audience&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
                                 <article class="project-card coursework-card">
                                     <p class="project-type">Unit 5 · Lesson 3</p>
@@ -897,8 +1052,33 @@
                                         <span class="tag">Color</span>
                                         <span class="tag">Hierarchy</span>
                                     </div>
-                                    <a href="../../WebDev-Coursework-Eason-Cao/Unit-5/Lesson-3/Internal Style to the website.html" class="btn btn-secondary" target="_blank" rel="noreferrer">View File</a>
+                                    <button class="btn btn-secondary view-code-btn" data-target="code-unit5-l3">View Code</button>
                                 </article>
+                                <pre class="code-block" id="code-unit5-l3" hidden><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Title of web page goes here&lt;/title&gt;
+        &lt;style&gt;
+            body {
+                background-image: url(&#x27;VSCodeIcon.jpg&#x27;);
+                background-size: cover;
+                background-position: center;
+            }
+            h1 {
+                color: red;
+            }
+            p {
+                color: blue;
+                font-size: 14px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Sample header text&lt;/h1&gt;
+        &lt;p&gt;Sample paragraph text.&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
                                 <article class="project-card coursework-card">
                                     <p class="project-type">Unit 10 · Lesson 2</p>
@@ -909,8 +1089,31 @@
                                         <span class="tag">Links</span>
                                         <span class="tag">CSS</span>
                                     </div>
-                                    <a href="../../WebDev-Coursework-Eason-Cao/Unit-10/Lesson-2/Code Challenge/index.html" class="btn btn-secondary" target="_blank" rel="noreferrer">View File</a>
+                                    <button class="btn btn-secondary view-code-btn" data-target="code-unit10-l2">View Code</button>
                                 </article>
+                                <pre class="code-block" id="code-unit10-l2" hidden><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Home - My Website&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/styles.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav class=&quot;navbar&quot;&gt;
+        &lt;ul class=&quot;nav-links&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;index.html&quot; class=&quot;active&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;about.html&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;contact.html&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+    &lt;div class=&quot;content&quot;&gt;
+        &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+        &lt;p&gt;This is the homepage. Use the navigation bar to explore the site.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script src=&quot;js/script.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
                             </div>
                         </div>
                     </details>
