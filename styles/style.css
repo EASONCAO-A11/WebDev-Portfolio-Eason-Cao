@@ -1063,6 +1063,63 @@ footer p {
     margin: 0;
 }
 
+/* Behind the Curtain - Image Gallery */
+.btc-image-section {
+    margin: 40px 0;
+}
+
+.btc-image-section h2 {
+    margin-bottom: 8px;
+}
+
+.btc-image-section > p {
+    margin-bottom: 20px;
+    color: var(--text-light);
+    opacity: 0.85;
+}
+
+.btc-image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin: 0 0 10px 0;
+}
+
+.btc-image-card {
+    background: rgba(8, 25, 20, 0.94);
+    border: 1px solid rgba(114,255,179,0.18);
+    border-radius: 0;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btc-image-card:hover {
+    border-color: rgba(114,255,179,0.5);
+    box-shadow: 0 0 20px rgba(114,255,179,0.10);
+}
+
+.btc-image-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid rgba(114,255,179,0.10);
+}
+
+.btc-image-caption {
+    padding: 12px 16px;
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    text-align: center;
+    letter-spacing: 0.05em;
+}
+
+/* Full-width card for the architecture diagram */
+.btc-image-card:only-child {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
 .future-list {
     list-style: none;
     padding: 0;
