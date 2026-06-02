@@ -876,11 +876,12 @@ footer p {
 }
 
 .decision-list li::before, .contribution-list li::before, .commitment-list li::before, .resources-list li::before, .learning-list li::before {
-    content: 'â†’';
+    content: '\2192';
     position: absolute;
     left: 0;
     color: var(--accent-light);
     font-weight: bold;
+    font-family: 'Poppins', system-ui, sans-serif;
 }
 
 /* Goal Highlight */
@@ -1076,11 +1077,12 @@ footer p {
 }
 
 .future-list li::before {
-    content: 'âœ“';
+    content: '\2713';
     position: absolute;
     left: 0;
     color: var(--accent-light);
     font-weight: bold;
+    font-family: 'Poppins', system-ui, sans-serif;
 }
 
 /* Project Grid */
@@ -1231,11 +1233,12 @@ footer p {
 }
 
 .skills-list li::before {
-    content: 'â–¸';
+    content: '\25B8';
     position: absolute;
     left: 0;
     color: var(--accent-light);
     font-weight: bold;
+    font-family: 'Poppins', system-ui, sans-serif;
 }
 
 /* Interests Grid */
@@ -1297,12 +1300,11 @@ footer p {
 }
 
 .education-list li::before, .goals-list li::before {
-    content: 'â†’';
+    content: '\2192';
     position: absolute;
     left: 0;
     color: var(--accent-light);
     font-weight: bold;
+    font-family: 'Poppins', system-ui, sans-serif;
 }
-
-
 
